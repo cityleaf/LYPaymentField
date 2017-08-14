@@ -1,6 +1,6 @@
 # **LYPaymentSecurityField**
 
-![](https://raw.githubusercontent.com/cityleaf/PaymentSecurityField/master/src/lypayment.png)
+![](https://raw.githubusercontent.com/cityleaf/LYPaymentField/master/src/lypayment.png)
 
 ![](https://img.shields.io/badge/language-objc-brightgreen.svg) ![Travis](https://img.shields.io/travis/rust-lang/rust.svg) ![platform](https://img.shields.io/badge/platform-iOS8.3%2B-orange.svg)
 
@@ -74,7 +74,7 @@ LYPaymentSecurityField is a security payment entry box that inherits from the sy
 At the same time, LYPaymentSecurityField also provides some have been integrated with other UI and security input box controls, developers can directly use.
 ## <a id="Screenshots"></a>截屏 Screenshots
 ## <a id="Dynamic"></a>动态演示 Dynamic presentation
-![](https://raw.githubusercontent.com/cityleaf/PaymentSecurityField/master/src/sample.gif)![](https://raw.githubusercontent.com/cityleaf/PaymentSecurityField/master/src/plaintext.gif)![](https://raw.githubusercontent.com/cityleaf/PaymentSecurityField/master/src/shortline.gif)![](https://raw.githubusercontent.com/cityleaf/PaymentSecurityField/master/src/customImage.gif)
+![](https://raw.githubusercontent.com/cityleaf/LYPaymentField/master/src/sample.gif)![](https://raw.githubusercontent.com/cityleaf/LYPaymentField/master/src/plaintext.gif)![](https://raw.githubusercontent.com/cityleaf/LYPaymentField/master/src/shortline.gif)![](https://raw.githubusercontent.com/cityleaf/LYPaymentField/master/src/customImage.gif)
 ## <a id="Installation"></a>安装方式 Installation
 #### 1. 手动拖入
 下载demo，将demo中的PaymentField文件夹拖入到自己的工程中，在需要使用的页面，导入LYPaymentSecurityField.h
