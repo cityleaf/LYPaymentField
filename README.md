@@ -2,7 +2,7 @@
 
 ![](https://raw.githubusercontent.com/cityleaf/LYPaymentField/master/src/lypayment.png)
 
-![](https://img.shields.io/badge/language-objc-brightgreen.svg) ![Travis](https://img.shields.io/travis/rust-lang/rust.svg) ![platform](https://img.shields.io/badge/platform-iOS8.3%2B-orange.svg)
+![](https://img.shields.io/badge/language-objc-brightgreen.svg) ![Travis](https://img.shields.io/travis/rust-lang/rust.svg) ![platform](https://img.shields.io/badge/platform-iOS8.3%2B-orange.svg) ![](https://img.shields.io/cocoapods/l/AFNetworking.svg)![](https://img.shields.io/badge/pod-v1.0.0-brightgreen.svg)
 
 # 目录Table of Contents
 * [介绍 Introduction](#Introduction)
@@ -80,13 +80,79 @@ At the same time, LYPaymentSecurityField also provides some have been integrated
 下载demo，将demo中的PaymentField文件夹拖入到自己的工程中，在需要使用的页面，导入LYPaymentSecurityField.h
 `#import "LYPaymentSecurityField.h"`
 #### 2. Cocopods导入
-暂不支持cocopods导入，在正式发版时会加入
+Podfile里增加
+`pod 'LYPaymentField'`
+在需要使用到的页面
+`#import <LYPaymentSecurityField.h>`
+
 #### 1. Manually
 Download demo, the demo in the PaymentField folder dragged into their own projects, the need to use the page,import LYPaymentSecurityField.h
 `#import "LYPaymentSecurityField.h"`
 #### 2. Cocopods
-Temporarily does not support cocoapods import, will be added in the official issue
+Added in Podfile
+`Pod 'LYPaymentField'`
+In the need to use the page
+`#import <LYPaymentSecurityField.h>`
 ## <a id="Usage"></a>用法 Usage
+
+```
+// 基本用法
+self.securityField = [[LYSecurityField alloc] initWithNumberOfCharacters:6 securityCharacterType:SecurityCharacterTypeSecurityDot borderType:BorderTypeHaveRoundedCorner];
+    self.securityField.frame = CGRectMake(15, 100, ScreenWidth-30, 50);
+    self.securityField.completion = ^(LYSecurityField * _Nonnull field, NSString * _Nonnull text) {
+        // 输入满格时被触发
+        // TO DO 
+    };
+    [self.view addSubview:self.securityField];
+```
+
+```
+// 明文Plaintext
+self.securityField = [[LYSecurityField alloc] initWithNumberOfCharacters:6 securityCharacterType:SecurityCharacterTypePlainText borderType:BorderTypeHaveRoundedCorner];
+    self.securityField.frame = CGRectMake(15, 100, ScreenWidth-30, 50);
+    self.securityField.colorOfCharacter = UIColor.blueColor;//文字颜色
+    self.securityField.completion = ^(LYSecurityField * _Nonnull field, NSString * _Nonnull text) {
+        // 输入满格时被触发
+        // TO DO
+    };
+    [self.view addSubview:self.securityField];
+```
+
+```
+// 短线加密符HorizontalLine
+self.securityField = [[LYSecurityField alloc] initWithNumberOfCharacters:6 securityCharacterType:SecurityCharacterTypeHorizontalLine borderType:BorderTypeHaveRoundedCorner];
+    self.securityField.frame = CGRectMake(15, 100, ScreenWidth-30, 50);
+//    self.securityField.colorOfCharacter = UIColor.brownColor;//文字颜色
+    self.securityField.completion = ^(LYSecurityField * _Nonnull field, NSString * _Nonnull text) {
+        // 输入满格时被触发
+        // TO DO
+    };
+    [self.view addSubview:self.securityField];
+```
+
+```
+// 自定义加密图片CustomImage
+self.securityField = [[LYSecurityField alloc] initWithNumberOfCharacters:6 securityCharacterType:SecurityCharacterTypeCustomImage borderType:BorderTypeHaveRoundedCorner];
+    self.securityField.frame = CGRectMake(15, 100, ScreenWidth-30, 50);
+    self.securityField.securityImage = [UIImage imageNamed:@"mi"];
+    self.securityField.securityImageSize = CGSizeMake(32, 32);//图片默认尺寸25*25，可选
+    self.securityField.completion = ^(LYSecurityField * _Nonnull field, NSString * _Nonnull text) {
+        // 输入满格时被触发
+        // TO DO
+    };
+    [self.view addSubview:self.securityField];
+```
+| property | note |
+| --- | --- |
+| diameterOfDot | 加密黑点的直径 |
+| tintColor | 前景色 |
+| colorOfCharacter | 加密图形的颜色 |
+| securityImage | 自定义加密图片 |
+| securityImageSize | 自定义加密图片的尺寸 |
+| countOfVerification | readonly（输入满格）被校验的次数  |
+| --- | --- |
+
+
 ## <a id="TODO"></a>后期计划 TODO
 
 
