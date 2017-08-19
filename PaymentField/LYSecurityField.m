@@ -21,9 +21,6 @@ NS_ASSUME_NONNULL_BEGIN
     int completion_count;
 }
 
-@property (nonatomic, assign) NSInteger numberOfCharacters;
-@property (nonatomic, copy) NSString *text;
-
 @property (nonatomic, strong) UIView *contentView;
 @property (nonatomic, strong) NSMutableArray <CALayer *>*lines;
 @property (nonatomic, strong) NSMutableArray <CALayer *>*boxs;
@@ -38,6 +35,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, assign) SecurityCharacterType securityCharacterType;
 @property (nonatomic, assign) BorderType borderType;
+
+- (CAShapeLayer *)createSecurityDot;
+- (CALayer *)createSeparaterLine;
+- (CATextLayer *)createCharacter;
+- (CALayer *)createCustomImage;
+- (CALayer *)createHorizontalLine;
 
 @end
 
@@ -381,7 +384,14 @@ NS_ASSUME_NONNULL_BEGIN
         self.text = [self.text stringByAppendingString:text];
         if (index == self.numberOfCharacters - 1) {
             completion_count++;
+            if (@protocol(LYPaymentFieldDelegate) && [self.delegate respondsToSelector:@selector(lYPaymentFieldDidEndEditing:)]) {
+                [self.delegate lYPaymentFieldDidEndEditing:self];
+            }
             !self.completion?:self.completion(self, self.text);
+        }
+        
+        if (@protocol(LYPaymentFieldDelegate) && [self.delegate respondsToSelector:@selector(lYPaymentFieldDidBeginEditing:)]) {
+            [self.delegate lYPaymentFieldDidBeginEditing:self];
         }
         
         [self setNeedsLayout];
@@ -395,6 +405,16 @@ NS_ASSUME_NONNULL_BEGIN
         NSInteger index = self.text.length;
         NSMutableArray<CALayer *>*placeholders = self.placeholderDic[@(self.securityCharacterType)];
         placeholders[index].opacity = 0;
+        
+        if (@protocol(LYPaymentFieldDelegate) && [self.delegate respondsToSelector:@selector(lYPaymentFieldDidDelete:)]) {
+            [self.delegate lYPaymentFieldDidDelete:self];
+        }
+        
+        if (!self.text.length) {
+            if (@protocol(LYPaymentFieldDelegate) && [self.delegate respondsToSelector:@selector(lYPaymentFieldDidClear:)]) {
+                [self.delegate lYPaymentFieldDidClear:self];
+            }
+        }
     }
 }
 
@@ -417,7 +437,9 @@ NS_ASSUME_NONNULL_BEGIN
     self.text = @"";
     [self.placeholderDic[@(self.securityCharacterType)] setValue:@0 forKeyPath:@"opacity"];
 
-    NSLog(@"clear is compltied");
+    if (@protocol(LYPaymentFieldDelegate) && [self.delegate respondsToSelector:@selector(lYPaymentFieldDidClear:)]) {
+        [self.delegate lYPaymentFieldDidClear:self];
+    }
 }
 
 

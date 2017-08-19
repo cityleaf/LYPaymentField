@@ -24,16 +24,49 @@ typedef NS_ENUM(NSUInteger, BorderType) {
     BorderTypeNoBorder,         ///<The control has no borders.
 };
 
+@class LYSecurityField;
+@protocol LYPaymentFieldDelegate <NSObject>
+
+@optional
+
+/**
+ 开始输入 begin editing
+
+ @param paymentField 支付框
+ */
+- (void)lYPaymentFieldDidBeginEditing:(LYSecurityField *)paymentField;
+
+/**
+ 输入完成 end editing
+
+ @param paymentField 支付框
+ */
+- (void)lYPaymentFieldDidEndEditing:(LYSecurityField *)paymentField;
+
+/**
+ 删除一个字符 delete a character
+
+ @param paymentField 支付框
+ */
+- (void)lYPaymentFieldDidDelete:(LYSecurityField *)paymentField;
+
+/**
+ 清除完成 clear all characters
+
+ @param paymentField 支付框
+ */
+- (void)lYPaymentFieldDidClear:(LYSecurityField *)paymentField;
+
+@end
+
 @interface LYSecurityField : UIControl
 
-/**
- Basic,is required.
- */
+@property (nonatomic, assign) id<LYPaymentFieldDelegate> delegate;
+
+@property (nonatomic, assign) NSInteger numberOfCharacters;
+@property (nonatomic, copy) NSString *text;
 @property (nonatomic, copy) void (^completion)(LYSecurityField *field, NSString *text);
 
-/**
- Additional ,is option.
- */
 @property (nonatomic, assign) CGFloat diameterOfDot;
 @property (nonatomic, strong) UIColor *tintColor;
 @property (nonatomic, strong) UIColor *colorOfCharacter;

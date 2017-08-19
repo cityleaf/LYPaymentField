@@ -8,7 +8,7 @@
 
 #import "SampleController.h"
 
-@interface SampleController ()
+@interface SampleController ()<LYPaymentFieldDelegate>
 
 @end
 
@@ -27,6 +27,7 @@
     // 带圆角
     self.securityField = [[LYSecurityField alloc] initWithNumberOfCharacters:6 securityCharacterType:SecurityCharacterTypeSecurityDot borderType:BorderTypeHaveRoundedCorner];
     self.securityField.frame = CGRectMake(15, 100, ScreenWidth-30, 50);
+    self.securityField.delegate = self;
     self.securityField.completion = ^(LYSecurityField * _Nonnull field, NSString * _Nonnull text) {
         // 输入满格时被触发
         NSString *string = [NSString stringWithFormat:@"当前输入为：%@\n第  %ld  次校验",text,field.countOfVerification];
@@ -48,6 +49,28 @@
 //    self.securityField.diameterOfDot = 30;//设置dot点直径
 //    [self.view addSubview:self.securityField];
     
+}
+
+#pragma mark - LYPaymentFieldDelegate
+
+- (void)lYPaymentFieldDidBeginEditing:(LYSecurityField *)paymentField
+{
+    NSLog(@"正在输入 text = %@",paymentField.text);
+}
+
+- (void)lYPaymentFieldDidEndEditing:(LYSecurityField *)paymentField
+{
+    NSLog(@"输入完成 = %@",paymentField.text);
+}
+
+- (void)lYPaymentFieldDidDelete:(LYSecurityField *)paymentField
+{
+    NSLog(@"已经删除一个字符");
+}
+
+- (void)lYPaymentFieldDidClear:(LYSecurityField *)paymentField
+{
+    NSLog(@"清除完毕");
 }
 
 @end
