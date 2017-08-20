@@ -12,6 +12,7 @@
 #import "PlaintextController.h"
 #import "HorizontalLineController.h"
 #import "CustomImageController.h"
+#import "AlertViewController.h"
 
 @interface ViewController ()
 @property (nonatomic, strong) NSArray <NSArray *>*controllers;
@@ -37,14 +38,14 @@
                                 @"明文Plaintext",
                                 @"短线加密符HorizontalLine",
                                 @"自定义加密图片CustomImage"],
-                              @[]];
+                              @[@"弹窗"]];
     
     self.controllers = @[
                          @[[[SampleController alloc] init],
                            [[PlaintextController alloc] init],
                            [[HorizontalLineController alloc] init],
                            [[CustomImageController alloc] init]],
-                         @[]];
+                         @[[[AlertViewController alloc] init]]];
     
     [self.tableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"cell"];
     
