@@ -7,7 +7,6 @@
 //
 
 #import "AlertViewController.h"
-#import "LYPaymentController.h"
 #import "ViewFrame.h"
 
 @interface AlertViewController ()
@@ -43,15 +42,7 @@
 
 - (void)buttonClicked:(UIButton *)button
 {
-    LYPaymentController *vc = [[LYPaymentController alloc] init];
-    vc.lineColor = [UIColor colorWithRed:0.50 green:0.80 blue:0.51 alpha:1.00];
-    vc.titleOfPayment = @"密码输入";
-    vc.numberOfCharacters = 6;
-    vc.amount = @"15";
-    vc.detailTitle = @"微信支付";
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
-    nav.modalPresentationStyle = UIModalPresentationOverCurrentContext;
-    [self presentViewController:nav animated:NO completion:nil];
+    // TODO:弹窗正在写
 }
 
 

@@ -33,9 +33,6 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSMutableArray <CALayer *>*customImages;
 @property (nonatomic, strong) NSMutableDictionary <NSNumber *,NSMutableArray *>*placeholderDic;
 
-@property (nonatomic, assign) SecurityCharacterType securityCharacterType;
-@property (nonatomic, assign) BorderType borderType;
-
 - (CAShapeLayer *)createSecurityDot;
 - (CALayer *)createSeparaterLine;
 - (CATextLayer *)createCharacter;
@@ -49,7 +46,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithNumberOfCharacters:(NSInteger)numberOfCharacters securityCharacterType:(SecurityCharacterType)securityCharacterType borderType:(BorderType)borderType
 {
     self = [[LYSecurityField alloc] init];
-    self.diameterOfDot = 15;
     self.numberOfCharacters = numberOfCharacters;
     self.securityCharacterType = securityCharacterType;
     self.borderType = borderType;
@@ -67,7 +63,7 @@ NS_ASSUME_NONNULL_BEGIN
             contentView;
         });
         [self addSubview:self.contentView];
-        
+        self.diameterOfDot = 15;
         self.colorOfCharacter = UIColor.blackColor;
         self.text = @"";
         self.placeholderDic = [NSMutableDictionary dictionary];
@@ -384,8 +380,8 @@ NS_ASSUME_NONNULL_BEGIN
         self.text = [self.text stringByAppendingString:text];
         if (index == self.numberOfCharacters - 1) {
             completion_count++;
-            if (@protocol(LYPaymentFieldDelegate) && [self.delegate respondsToSelector:@selector(lYPaymentFieldDidEndEditing:)]) {
-                [self.delegate lYPaymentFieldDidEndEditing:self];
+            if (@protocol(LYPaymentFieldDelegate) && [self.delegate respondsToSelector:@selector(lYPaymentFieldDidFinishedEditing:)]) {
+                [self.delegate lYPaymentFieldDidFinishedEditing:self];
             }
             !self.completion?:self.completion(self, self.text);
         }

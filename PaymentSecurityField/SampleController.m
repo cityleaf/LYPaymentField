@@ -58,7 +58,7 @@
     NSLog(@"正在输入 text = %@",paymentField.text);
 }
 
-- (void)lYPaymentFieldDidEndEditing:(LYSecurityField *)paymentField
+- (void)lYPaymentFieldDidFinishedEditing:(LYSecurityField *)paymentField
 {
     NSLog(@"输入完成 = %@",paymentField.text);
 }

@@ -100,7 +100,11 @@
 
 - (void)setTop:(CGFloat)top
 {
+    CGFloat oldHeight = CGRectGetHeight(self.frame);
+    CGFloat dY = self.y - top;
+    CGFloat newHeight = oldHeight + dY > 0 ? oldHeight + dY : 0 ;
     self.y = top;
+    self.height = newHeight;
 }
 
 - (CGFloat)top
@@ -110,7 +114,11 @@
 
 - (void)setLeft:(CGFloat)left
 {
+    CGFloat oldWidth = CGRectGetWidth(self.frame);
+    CGFloat dX = self.x - left;
+    CGFloat newWidth = oldWidth + dX > 0 ? oldWidth + dX : 0;
     self.x = left;
+    self.width = newWidth;
 }
 
 - (CGFloat)left
@@ -120,8 +128,10 @@
 
 - (void)setBottom:(CGFloat)bottom
 {
-    CGFloat height = bottom - self.top;
-    self.height = height;
+    CGFloat oldHeight = CGRectGetHeight(self.frame);
+    CGFloat dY = bottom - self.bottom;
+    CGFloat newHeight = oldHeight + dY > 0 ? oldHeight + dY : 0;
+    self.height = newHeight;
 }
 
 - (CGFloat)bottom
@@ -131,8 +141,10 @@
 
 - (void)setRight:(CGFloat)right
 {
-    CGFloat width = right - self.left;
-    self.width = width;
+    CGFloat oldWidth = CGRectGetWidth(self.frame);
+    CGFloat dX = right - self.right;
+    CGFloat newWidth = oldWidth + dX > 0 ? oldWidth + dX : 0;
+    self.width = newWidth;
 }
 
 - (CGFloat)right

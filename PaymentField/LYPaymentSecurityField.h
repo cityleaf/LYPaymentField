@@ -9,4 +9,3 @@
 #import <Foundation/Foundation.h>
 
 #import "LYSecurityField.h"
-#import "LYPaymentController.h"

@@ -27,6 +27,15 @@ typedef NS_ENUM(NSUInteger, BorderType) {
 @class LYSecurityField;
 @protocol LYPaymentFieldDelegate <NSObject>
 
+@required
+
+/**
+ 输入完成 end editing
+ 
+ @param paymentField 支付框
+ */
+- (void)lYPaymentFieldDidFinishedEditing:(LYSecurityField *)paymentField;
+
 @optional
 
 /**
@@ -35,13 +44,6 @@ typedef NS_ENUM(NSUInteger, BorderType) {
  @param paymentField 支付框
  */
 - (void)lYPaymentFieldDidBeginEditing:(LYSecurityField *)paymentField;
-
-/**
- 输入完成 end editing
-
- @param paymentField 支付框
- */
-- (void)lYPaymentFieldDidEndEditing:(LYSecurityField *)paymentField;
 
 /**
  删除一个字符 delete a character
@@ -62,21 +64,19 @@ typedef NS_ENUM(NSUInteger, BorderType) {
 @interface LYSecurityField : UIControl
 
 @property (nonatomic, assign) id<LYPaymentFieldDelegate> delegate;
-
 @property (nonatomic, assign) NSInteger numberOfCharacters;
+@property (nonatomic, assign) SecurityCharacterType securityCharacterType;
+@property (nonatomic, assign) BorderType borderType;
+@property (nonatomic, assign) CGFloat diameterOfDot;
+@property (nonatomic, assign) CGSize securityImageSize;
+@property (nonatomic, assign, readonly) NSInteger countOfVerification;
+
 @property (nonatomic, copy) NSString *text;
 @property (nonatomic, copy) void (^completion)(LYSecurityField *field, NSString *text);
 
-@property (nonatomic, assign) CGFloat diameterOfDot;
 @property (nonatomic, strong) UIColor *tintColor;
 @property (nonatomic, strong) UIColor *colorOfCharacter;
 @property (nonatomic, strong) UIImage *securityImage;
-@property (nonatomic, assign) CGSize securityImageSize;
-
-/**
- The number of times of verification.
- */
-@property (nonatomic, assign, readonly) NSInteger countOfVerification;
 
 - (instancetype)initWithNumberOfCharacters:(NSInteger)numberOfCharacters
                      securityCharacterType:(SecurityCharacterType)securityCharacterType
