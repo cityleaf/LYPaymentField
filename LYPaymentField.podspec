@@ -16,7 +16,7 @@ Pod::Spec.new do |s|
   #
 
   s.name         = "LYPaymentField"
-  s.version      = "1.0.0"
+  s.version      = "1.0.1"
   s.summary      = "可以定制密码支付框或使用已经封装好的UI.You can customize the password payment box or use the already encapsulated controls."
 
   # This description is used to generate tags and improve search results.
