@@ -73,8 +73,8 @@ LYPaymentSecurityField is a security payment entry box that inherits from the sy
 ```
 At the same time, LYPaymentSecurityField also provides some have been integrated with other UI and security input box controls, developers can directly use.
 ## <a id="Screenshots"></a>截屏 Screenshots
-## <a id="Dynamic"></a>动态演示 Dynamic presentation
-模拟器效果不是太好，请到真机上运行^-^
+## <a id="Dynamic"></a>动态演示 Dynamic presentation 
+##### 模拟器效果不是太好，请到真机上运行^-^
 ![](https://raw.githubusercontent.com/cityleaf/LYPaymentField/master/src/alert_default.gif)
 ![](https://raw.githubusercontent.com/cityleaf/LYPaymentField/master/src/alert_fuza.gif)
 ![](https://raw.githubusercontent.com/cityleaf/LYPaymentField/master/src/sample.gif)![](https://raw.githubusercontent.com/cityleaf/LYPaymentField/master/src/plaintext.gif)![](https://raw.githubusercontent.com/cityleaf/LYPaymentField/master/src/shortline.gif)![](https://raw.githubusercontent.com/cityleaf/LYPaymentField/master/src/customImage.gif)
