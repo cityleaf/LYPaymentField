@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		17066D281F764F7E0037FFFC /* ScrollViewFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 17066D271F764F7E0037FFFC /* ScrollViewFrame.m */; };
+		17066D311F77E3DE0037FFFC /* payment_close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17066D2F1F77E3DE0037FFFC /* payment_close@2x.png */; };
+		17066D321F77E3DE0037FFFC /* payment_close@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17066D301F77E3DE0037FFFC /* payment_close@3x.png */; };
+		17066D351F77E8EB0037FFFC /* LYPaymentAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17066D341F77E8EB0037FFFC /* LYPaymentAlertController.m */; };
+		17066D3A1F77EA0A0037FFFC /* LYPaymentAlertTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = 17066D391F77EA0A0037FFFC /* LYPaymentAlertTransitioning.m */; };
+		17066D3D1F77FA9A0037FFFC /* LYPaymentAlertTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 17066D3C1F77FA9A0037FFFC /* LYPaymentAlertTheme.m */; };
+		170719BB1F73B7ED003EA9A2 /* LYPaymentBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 170719BA1F73B7ED003EA9A2 /* LYPaymentBaseViewController.m */; };
 		173CA3691F317093008A3DF8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 173CA3681F317093008A3DF8 /* main.m */; };
 		173CA36C1F317093008A3DF8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 173CA36B1F317093008A3DF8 /* AppDelegate.m */; };
 		173CA36F1F317093008A3DF8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 173CA36E1F317093008A3DF8 /* ViewController.m */; };
@@ -20,12 +27,22 @@
 		176623E11F39C89200D5AF82 /* CustomImageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 176623E01F39C89200D5AF82 /* CustomImageController.m */; };
 		17DCD77F1F32114100056378 /* LYSecurityField.m in Sources */ = {isa = PBXBuildFile; fileRef = 17DCD77E1F32114100056378 /* LYSecurityField.m */; };
 		17EBE2BF1F48907000EAE382 /* ViewFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 17EBE2BC1F48907000EAE382 /* ViewFrame.m */; };
-		17EBE2C01F48907000EAE382 /* UIView+Animation.m in Sources */ = {isa = PBXBuildFile; fileRef = 17EBE2BE1F48907000EAE382 /* UIView+Animation.m */; };
 		17EBE2DE1F4990A100EAE382 /* AlertViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17EBE2DD1F4990A100EAE382 /* AlertViewController.m */; };
-		17EBE2E11F49B6EB00EAE382 /* UIViewController+Category.m in Sources */ = {isa = PBXBuildFile; fileRef = 17EBE2E01F49B6EB00EAE382 /* UIViewController+Category.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		17066D261F764F7E0037FFFC /* ScrollViewFrame.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScrollViewFrame.h; sourceTree = "<group>"; };
+		17066D271F764F7E0037FFFC /* ScrollViewFrame.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ScrollViewFrame.m; sourceTree = "<group>"; };
+		17066D2F1F77E3DE0037FFFC /* payment_close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "payment_close@2x.png"; sourceTree = "<group>"; };
+		17066D301F77E3DE0037FFFC /* payment_close@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "payment_close@3x.png"; sourceTree = "<group>"; };
+		17066D331F77E8EB0037FFFC /* LYPaymentAlertController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LYPaymentAlertController.h; sourceTree = "<group>"; };
+		17066D341F77E8EB0037FFFC /* LYPaymentAlertController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LYPaymentAlertController.m; sourceTree = "<group>"; };
+		17066D381F77EA0A0037FFFC /* LYPaymentAlertTransitioning.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LYPaymentAlertTransitioning.h; sourceTree = "<group>"; };
+		17066D391F77EA0A0037FFFC /* LYPaymentAlertTransitioning.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LYPaymentAlertTransitioning.m; sourceTree = "<group>"; };
+		17066D3B1F77FA9A0037FFFC /* LYPaymentAlertTheme.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LYPaymentAlertTheme.h; sourceTree = "<group>"; };
+		17066D3C1F77FA9A0037FFFC /* LYPaymentAlertTheme.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LYPaymentAlertTheme.m; sourceTree = "<group>"; };
+		170719B91F73B7ED003EA9A2 /* LYPaymentBaseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LYPaymentBaseViewController.h; sourceTree = "<group>"; };
+		170719BA1F73B7ED003EA9A2 /* LYPaymentBaseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LYPaymentBaseViewController.m; sourceTree = "<group>"; };
 		172388D71F3B57E600B4088C /* LYPaymentSecurityField.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LYPaymentSecurityField.h; sourceTree = "<group>"; };
 		173CA3641F317093008A3DF8 /* PaymentSecurityField.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PaymentSecurityField.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		173CA3681F317093008A3DF8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -50,16 +67,10 @@
 		176623E01F39C89200D5AF82 /* CustomImageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomImageController.m; sourceTree = "<group>"; };
 		17DCD77D1F32114100056378 /* LYSecurityField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LYSecurityField.h; sourceTree = "<group>"; };
 		17DCD77E1F32114100056378 /* LYSecurityField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LYSecurityField.m; sourceTree = "<group>"; };
-		17EBE2BB1F48907000EAE382 /* UIView+Animation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Animation.h"; sourceTree = "<group>"; };
 		17EBE2BC1F48907000EAE382 /* ViewFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewFrame.m; sourceTree = "<group>"; };
 		17EBE2BD1F48907000EAE382 /* ViewFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewFrame.h; sourceTree = "<group>"; };
-		17EBE2BE1F48907000EAE382 /* UIView+Animation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Animation.m"; sourceTree = "<group>"; };
 		17EBE2DC1F4990A100EAE382 /* AlertViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AlertViewController.h; sourceTree = "<group>"; };
 		17EBE2DD1F4990A100EAE382 /* AlertViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AlertViewController.m; sourceTree = "<group>"; };
-		17EBE2DF1F49B6EB00EAE382 /* UIViewController+Category.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Category.h"; sourceTree = "<group>"; };
-		17EBE2E01F49B6EB00EAE382 /* UIViewController+Category.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Category.m"; sourceTree = "<group>"; };
-		17EBE2E71F49D89300EAE382 /* payment_close@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "payment_close@3x.png"; sourceTree = "<group>"; };
-		17EBE2E81F49D89300EAE382 /* payment_close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "payment_close@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +84,52 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		17066D2C1F77E3700037FFFC /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				17066D2D1F77E3830037FFFC /* Base */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		17066D2D1F77E3830037FFFC /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				170719B91F73B7ED003EA9A2 /* LYPaymentBaseViewController.h */,
+				170719BA1F73B7ED003EA9A2 /* LYPaymentBaseViewController.m */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		17066D2E1F77E3DE0037FFFC /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				17066D2F1F77E3DE0037FFFC /* payment_close@2x.png */,
+				17066D301F77E3DE0037FFFC /* payment_close@3x.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		17066D361F77E9370037FFFC /* ActionSheet */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ActionSheet;
+			sourceTree = "<group>";
+		};
+		17066D371F77E94A0037FFFC /* AlertController */ = {
+			isa = PBXGroup;
+			children = (
+				17066D331F77E8EB0037FFFC /* LYPaymentAlertController.h */,
+				17066D341F77E8EB0037FFFC /* LYPaymentAlertController.m */,
+				17066D381F77EA0A0037FFFC /* LYPaymentAlertTransitioning.h */,
+				17066D391F77EA0A0037FFFC /* LYPaymentAlertTransitioning.m */,
+				17066D3B1F77FA9A0037FFFC /* LYPaymentAlertTheme.h */,
+				17066D3C1F77FA9A0037FFFC /* LYPaymentAlertTheme.m */,
+			);
+			path = AlertController;
+			sourceTree = "<group>";
+		};
 		172388D81F3B646A00B4088C /* xib */ = {
 			isa = PBXGroup;
 			children = (
@@ -126,7 +183,10 @@
 			isa = PBXGroup;
 			children = (
 				172388D71F3B57E600B4088C /* LYPaymentSecurityField.h */,
-				17EBE2E61F49D88D00EAE382 /* images */,
+				17066D371F77E94A0037FFFC /* AlertController */,
+				17066D361F77E9370037FFFC /* ActionSheet */,
+				17066D2E1F77E3DE0037FFFC /* Resources */,
+				17066D2C1F77E3700037FFFC /* Common */,
 				17EBE2CC1F498A5300EAE382 /* Core */,
 				17EBE2BA1F48905300EAE382 /* Category */,
 			);
@@ -173,12 +233,10 @@
 		17EBE2BA1F48905300EAE382 /* Category */ = {
 			isa = PBXGroup;
 			children = (
-				17EBE2BB1F48907000EAE382 /* UIView+Animation.h */,
-				17EBE2BE1F48907000EAE382 /* UIView+Animation.m */,
 				17EBE2BD1F48907000EAE382 /* ViewFrame.h */,
 				17EBE2BC1F48907000EAE382 /* ViewFrame.m */,
-				17EBE2DF1F49B6EB00EAE382 /* UIViewController+Category.h */,
-				17EBE2E01F49B6EB00EAE382 /* UIViewController+Category.m */,
+				17066D261F764F7E0037FFFC /* ScrollViewFrame.h */,
+				17066D271F764F7E0037FFFC /* ScrollViewFrame.m */,
 			);
 			path = Category;
 			sourceTree = "<group>";
@@ -190,15 +248,6 @@
 				17DCD77E1F32114100056378 /* LYSecurityField.m */,
 			);
 			path = Core;
-			sourceTree = "<group>";
-		};
-		17EBE2E61F49D88D00EAE382 /* images */ = {
-			isa = PBXGroup;
-			children = (
-				17EBE2E81F49D89300EAE382 /* payment_close@2x.png */,
-				17EBE2E71F49D89300EAE382 /* payment_close@3x.png */,
-			);
-			path = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,6 +309,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17066D321F77E3DE0037FFFC /* payment_close@3x.png in Resources */,
+				17066D311F77E3DE0037FFFC /* payment_close@2x.png in Resources */,
 				173CA3771F317093008A3DF8 /* LaunchScreen.storyboard in Resources */,
 				173CA3741F317093008A3DF8 /* Assets.xcassets in Resources */,
 				173CA3721F317093008A3DF8 /* Main.storyboard in Resources */,
@@ -273,16 +324,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17066D3A1F77EA0A0037FFFC /* LYPaymentAlertTransitioning.m in Sources */,
+				17066D3D1F77FA9A0037FFFC /* LYPaymentAlertTheme.m in Sources */,
+				170719BB1F73B7ED003EA9A2 /* LYPaymentBaseViewController.m in Sources */,
+				17066D281F764F7E0037FFFC /* ScrollViewFrame.m in Sources */,
 				176623D21F39A80A00D5AF82 /* BaseViewController.m in Sources */,
 				173CA36F1F317093008A3DF8 /* ViewController.m in Sources */,
 				17EBE2BF1F48907000EAE382 /* ViewFrame.m in Sources */,
 				17DCD77F1F32114100056378 /* LYSecurityField.m in Sources */,
-				17EBE2E11F49B6EB00EAE382 /* UIViewController+Category.m in Sources */,
 				17EBE2DE1F4990A100EAE382 /* AlertViewController.m in Sources */,
 				173CA36C1F317093008A3DF8 /* AppDelegate.m in Sources */,
-				17EBE2C01F48907000EAE382 /* UIView+Animation.m in Sources */,
 				176623DE1F39C88600D5AF82 /* HorizontalLineController.m in Sources */,
 				176623E11F39C89200D5AF82 /* CustomImageController.m in Sources */,
+				17066D351F77E8EB0037FFFC /* LYPaymentAlertController.m in Sources */,
 				176623DB1F39C87600D5AF82 /* PlaintextController.m in Sources */,
 				176623D81F39C86800D5AF82 /* SampleController.m in Sources */,
 				173CA3691F317093008A3DF8 /* main.m in Sources */,

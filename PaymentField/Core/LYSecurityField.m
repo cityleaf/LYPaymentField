@@ -384,10 +384,10 @@ NS_ASSUME_NONNULL_BEGIN
                 [self.delegate lYPaymentFieldDidFinishedEditing:self];
             }
             !self.completion?:self.completion(self, self.text);
-        }
-        
-        if (@protocol(LYPaymentFieldDelegate) && [self.delegate respondsToSelector:@selector(lYPaymentFieldDidBeginEditing:)]) {
-            [self.delegate lYPaymentFieldDidBeginEditing:self];
+        } else {
+            if (@protocol(LYPaymentFieldDelegate) && [self.delegate respondsToSelector:@selector(lYPaymentFieldDidBeginEditing:)]) {
+                [self.delegate lYPaymentFieldDidBeginEditing:self];
+            }
         }
         
         [self setNeedsLayout];
@@ -409,6 +409,10 @@ NS_ASSUME_NONNULL_BEGIN
         if (!self.text.length) {
             if (@protocol(LYPaymentFieldDelegate) && [self.delegate respondsToSelector:@selector(lYPaymentFieldDidClear:)]) {
                 [self.delegate lYPaymentFieldDidClear:self];
+            }
+        } else {
+            if (@protocol(LYPaymentFieldDelegate) && [self.delegate respondsToSelector:@selector(lYPaymentFieldDidBeginEditing:)]) {
+                [self.delegate lYPaymentFieldDidBeginEditing:self];
             }
         }
     }
