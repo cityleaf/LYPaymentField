@@ -50,7 +50,7 @@
     switch (button.tag) {
         case 0:
         {
-            LYPaymentAlertController *paymentAlert = [LYPaymentAlertController alertControllerWithTitle:@"请输入支付密码" numberOfCharacters:6 amount:@"￥120.00" remarks:@"浙江黄金宝投资有限公司"];
+            LYPaymentAlertController *paymentAlert = [LYPaymentAlertController alertControllerWithTitle:@"请输入支付密码" numberOfCharacters:6 amount:@"￥120.00" remarks:@"看那有个傻子"];
             paymentAlert.contentOffset = CGSizeMake(0, 50);
             [self presentViewController:paymentAlert animated:YES completion:nil];
             break;
@@ -63,7 +63,7 @@
             theme.amountTextAttributes = @{NSForegroundColorAttributeName:[UIColor colorWithRed:0.97 green:0.79 blue:0.18 alpha:1.00],NSFontAttributeName:[UIFont systemFontOfSize:40]};
             // [LYPaymentAlertController registerDefaultTheme:theme];
             
-            LYPaymentAlertController *paymentAlert = [LYPaymentAlertController alertControllerWithTitle:@"请输入支付密码" numberOfCharacters:6 amount:@"￥120.00" remarks:@"浙江黄金宝投资有限公司"];
+            LYPaymentAlertController *paymentAlert = [LYPaymentAlertController alertControllerWithTitle:@"请输入支付密码" numberOfCharacters:6 amount:@"￥120.00" remarks:@"一只猴网络工作室"];
             paymentAlert.contentOffset = CGSizeMake(0, 50);
             paymentAlert.presentingStyle = AlertPresentStyleBottomToCenterSpring;
             paymentAlert.dismissStyle = AlertPresentStyleCenterSpring;
@@ -73,7 +73,7 @@
         }
         case 2:
         {
-            LYPaymentAlertController *paymentAlert = [LYPaymentAlertController alertControllerWithTitle:@"请输入支付密码" numberOfCharacters:6 amount:@"￥120.00" remarks:@"浙江黄金宝投资有限公司"];
+            LYPaymentAlertController *paymentAlert = [LYPaymentAlertController alertControllerWithTitle:@"请输入支付密码" numberOfCharacters:6 amount:@"￥120.00" remarks:@"转账至 叶*城"];
             paymentAlert.contentOffset = CGSizeMake(0, 50);
             paymentAlert.presentingStyle = AlertPresentStyleTopToCenterSpring;
             paymentAlert.dismissStyle = AlertPresentStyleCenterSpring;
@@ -82,7 +82,7 @@
         }
         case 3:
         {
-            LYPaymentAlertController *paymentAlert = [LYPaymentAlertController alertControllerWithTitle:@"请输入支付密码" numberOfCharacters:6 amount:@"￥120.00" remarks:@"浙江黄金宝投资有限公司"];
+            LYPaymentAlertController *paymentAlert = [LYPaymentAlertController alertControllerWithTitle:@"请输入支付密码" numberOfCharacters:6 amount:@"￥120.00" remarks:@"付款给 小叶*"];
             paymentAlert.contentOffset = CGSizeMake(0, 50);
             paymentAlert.presentingStyle = AlertPresentStyleBottomToCenterSpring;
             paymentAlert.dismissStyle = AlertPresentStyleBottomToCenterSpring;
@@ -100,7 +100,7 @@
         }
         case 4:
         {
-            LYPaymentAlertController *paymentAlert = [LYPaymentAlertController alertControllerWithTitle:@"请输入支付密码" numberOfCharacters:6 amount:@"￥120.00" remarks:@"浙江黄金宝投资有限公司"];
+            LYPaymentAlertController *paymentAlert = [LYPaymentAlertController alertControllerWithTitle:@"请输入支付密码" numberOfCharacters:6 amount:@"￥120.00" remarks:@"浙江XXXXXXX有限公司"];
             paymentAlert.contentOffset = CGSizeMake(0, 50);
             paymentAlert.presentingStyle = AlertPresentStyleTopToCenterSpring;
             paymentAlert.dismissStyle = AlertPresentStyleTopToCenterSpring;
@@ -110,7 +110,7 @@
         case 5:
         {
             NSString *amount = @"￥15.00";
-            NSString *remarks = @"浙江黄金宝投资有限公司";
+            NSString *remarks = @"浙江XXXXXXX有限公司";
             LYPaymentAlertController *paymentAlert = [LYPaymentAlertController alertControllerWithTitle:@"请输入支付密码" numberOfCharacters:6];
             paymentAlert.contentOffset = CGSizeMake(0, 50);
             paymentAlert.headerView = ({
@@ -155,8 +155,8 @@
         }
         case 6:
         {
-            NSString *amount = @"￥15.00";
-            NSString *remarks = @"浙江黄金宝投资有限公司";
+            NSString *amount = @"￥1314.00";
+            NSString *remarks = @"一梦千年 一剑情缘";
             LYPaymentAlertController *paymentAlert = [LYPaymentAlertController alertControllerWithTitle:@"请输入支付密码" numberOfCharacters:6];
             paymentAlert.contentOffset = CGSizeMake(0, 50);
             paymentAlert.headerView = ({
