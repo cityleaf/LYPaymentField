@@ -2,7 +2,7 @@
 
 ![](https://raw.githubusercontent.com/cityleaf/LYPaymentField/master/src/lypayment.png)
 
-![](https://img.shields.io/badge/language-objc-brightgreen.svg) ![Travis](https://img.shields.io/travis/rust-lang/rust.svg) ![platform](https://img.shields.io/badge/platform-iOS8.3%2B-orange.svg) ![](https://img.shields.io/cocoapods/l/AFNetworking.svg) ![](https://img.shields.io/badge/pod-v1.1.0-brightgreen.svg)
+![](https://img.shields.io/badge/language-objc-brightgreen.svg) ![Travis](https://img.shields.io/travis/rust-lang/rust.svg) ![platform](https://img.shields.io/badge/platform-iOS8.3%2B-orange.svg) ![](https://img.shields.io/cocoapods/l/AFNetworking.svg) ![](https://img.shields.io/badge/pod-v1.2.0-brightgreen.svg)
 
 # 目录Table of Contents
 * [介绍 Introduction](#Introduction)
