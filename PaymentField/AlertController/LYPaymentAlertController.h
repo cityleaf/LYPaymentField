@@ -29,8 +29,19 @@ NS_ASSUME_NONNULL_BEGIN
 
 @optional
 
+/**
+ 正在输入密码
+
+ @param paymentController 支付弹框
+ @param securityText 输入的密码
+ */
 - (void)lYPaymentController:(LYPaymentAlertController *)paymentController didEditingSecurityText:(NSString *)securityText;
 
+/**
+ 清除完成
+
+ @param paymentController 支付弹框
+ */
 - (void)lYPaymentControllerDidClear:(LYPaymentAlertController *)paymentController;
 
 @end

@@ -74,6 +74,8 @@ LYPaymentSecurityField is a security payment entry box that inherits from the sy
 At the same time, LYPaymentSecurityField also provides some have been integrated with other UI and security input box controls, developers can directly use.
 ## <a id="Screenshots"></a>截屏 Screenshots
 ## <a id="Dynamic"></a>动态演示 Dynamic presentation
+![](https://raw.githubusercontent.com/cityleaf/LYPaymentField/master/src/alert_default.gif)
+![](https://raw.githubusercontent.com/cityleaf/LYPaymentField/master/src/alert_fuza.gif)
 ![](https://raw.githubusercontent.com/cityleaf/LYPaymentField/master/src/sample.gif)![](https://raw.githubusercontent.com/cityleaf/LYPaymentField/master/src/plaintext.gif)![](https://raw.githubusercontent.com/cityleaf/LYPaymentField/master/src/shortline.gif)![](https://raw.githubusercontent.com/cityleaf/LYPaymentField/master/src/customImage.gif)
 ## <a id="Installation"></a>安装方式 Installation
 #### 1. 手动拖入
@@ -141,6 +143,67 @@ self.securityField = [[LYSecurityField alloc] initWithNumberOfCharacters:6 secur
         // TO DO
     };
     [self.view addSubview:self.securityField];
+```
+### 为核心输入框组件LYSecurityField增加协议方法
+
+```
+/**
+ 输入完成 end editing
+ 
+ @param paymentField 支付框
+ */
+- (void)lYPaymentFieldDidFinishedEditing:(LYSecurityField *)paymentField;
+
+/**
+ 开始输入 begin editing
+
+ @param paymentField 支付框
+ */
+- (void)lYPaymentFieldDidBeginEditing:(LYSecurityField *)paymentField;
+
+/**
+ 删除字符 delete a character
+
+ @param paymentField 支付框
+ */
+- (void)lYPaymentFieldDidDelete:(LYSecurityField *)paymentField;
+
+/**
+ 清除完成 clear all characters
+
+ @param paymentField 支付框
+ */
+- (void)lYPaymentFieldDidClear:(LYSecurityField *)paymentField;
+```
+#### 为集成的支付弹框组件新增协议方法
+
+```
+@required
+
+/**
+ 支付密码输入完成
+
+ @param paymentController 弹窗
+ @param securityText 输入完成时的输入内容
+ */
+- (void)lYPaymentController:(LYPaymentAlertController *)paymentController securityTextOfCompeletion:(NSString *)securityText;
+
+@optional
+
+/**
+ 正在输入密码
+
+ @param paymentController 支付弹框
+ @param securityText 输入的密码
+ */
+- (void)lYPaymentController:(LYPaymentAlertController *)paymentController didEditingSecurityText:(NSString *)securityText;
+
+/**
+ 清除完成
+
+ @param paymentController 支付弹框
+ */
+- (void)lYPaymentControllerDidClear:(LYPaymentAlertController *)paymentController;
 ```
 | property | note |
 | --- | --- |
