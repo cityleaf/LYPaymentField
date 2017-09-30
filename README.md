@@ -218,5 +218,9 @@ self.securityField = [[LYSecurityField alloc] initWithNumberOfCharacters:6 secur
 
 
 ## <a id="TODO"></a>后期计划 TODO
+###欢迎大家前来交流经验，希望与大家共同提升，学无止境
+QQ：2262932319
+![](https://raw.githubusercontent.com/cityleaf/LYPaymentField/master/src/WeChat.png)
+    
 
 
