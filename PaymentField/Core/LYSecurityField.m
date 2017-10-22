@@ -43,6 +43,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @implementation LYSecurityField
 
+- (void)dealloc
+{
+    [self removeObserver:self forKeyPath:@"frame"];
+}
+
 - (instancetype)initWithNumberOfCharacters:(NSInteger)numberOfCharacters securityCharacterType:(SecurityCharacterType)securityCharacterType borderType:(BorderType)borderType
 {
     self = [[LYSecurityField alloc] init];
