@@ -16,6 +16,8 @@ NS_ASSUME_NONNULL_BEGIN
 #define DEFAULT_HORIZONTALLINE_WIDTH 20
 #define DEFAULT_CUSTOMIMAGE_WIDTH 20
 
+void *KVOFrameContext;
+
 @interface LYSecurityField()<UIKeyInput,UITextInputTraits>
 {
     int completion_count;
@@ -45,15 +47,18 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)dealloc
 {
-    [self removeObserver:self forKeyPath:@"frame"];
+    [self removeObserver:self forKeyPath:@"frame" context:KVOFrameContext];
 }
 
 - (instancetype)initWithNumberOfCharacters:(NSInteger)numberOfCharacters securityCharacterType:(SecurityCharacterType)securityCharacterType borderType:(BorderType)borderType
 {
-    self = [[LYSecurityField alloc] init];
-    self.numberOfCharacters = numberOfCharacters;
-    self.securityCharacterType = securityCharacterType;
-    self.borderType = borderType;
+    self = [super init];
+    if (self) {
+        [self steup];
+        self.numberOfCharacters = numberOfCharacters;
+        self.securityCharacterType = securityCharacterType;
+        self.borderType = borderType;
+    }
     return self;
 }
 
@@ -61,22 +66,27 @@ NS_ASSUME_NONNULL_BEGIN
 {
     self = [super init];
     if (self) {
-        self.contentView = ({
-            UIView *contentView = [[UIView alloc] init];
-            contentView.backgroundColor = UIColor.clearColor;
-            contentView.userInteractionEnabled = NO;
-            contentView;
-        });
-        [self addSubview:self.contentView];
-        self.diameterOfDot = 15;
-        self.colorOfCharacter = UIColor.blackColor;
-        self.text = @"";
-        self.placeholderDic = [NSMutableDictionary dictionary];
-        self.lines = [NSMutableArray array];
-        [self addTarget:self action:@selector(hangdleAction:) forControlEvents:UIControlEventTouchUpInside];
-        [self addObserver:self forKeyPath:@"frame" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:NULL];
+        [self steup];
     }
     return self;
+}
+
+- (void)steup
+{
+    self.contentView = ({
+        UIView *contentView = [[UIView alloc] init];
+        contentView.backgroundColor = UIColor.clearColor;
+        contentView.userInteractionEnabled = NO;
+        contentView;
+    });
+    [self addSubview:self.contentView];
+    self.diameterOfDot = 15;
+    self.colorOfCharacter = UIColor.blackColor;
+    self.text = @"";
+    self.placeholderDic = [NSMutableDictionary dictionary];
+    self.lines = [NSMutableArray array];
+    [self addTarget:self action:@selector(hangdleAction:) forControlEvents:UIControlEventTouchUpInside];
+    [self addObserver:self forKeyPath:@"frame" options:NSKeyValueObservingOptionNew|NSKeyValueObservingOptionOld context:KVOFrameContext];
 }
 
 - (void)layoutSubviews
