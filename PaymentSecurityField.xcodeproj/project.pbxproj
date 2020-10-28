@@ -281,7 +281,7 @@
 				TargetAttributes = {
 					173CA3631F317093008A3DF8 = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = D34L92283T;
+						DevelopmentTeam = 99KA7Z739D;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -291,6 +291,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -471,7 +472,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = D34L92283T;
+				DEVELOPMENT_TEAM = 99KA7Z739D;
 				INFOPLIST_FILE = PaymentSecurityField/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = site.sleet.PaymentSecurityField;
@@ -483,7 +484,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = D34L92283T;
+				DEVELOPMENT_TEAM = 99KA7Z739D;
 				INFOPLIST_FILE = PaymentSecurityField/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = site.sleet.PaymentSecurityField;

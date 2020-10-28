@@ -26,7 +26,9 @@
     
     // 带圆角
     self.securityField = [[LYSecurityField alloc] initWithNumberOfCharacters:6 securityCharacterType:SecurityCharacterTypeSecurityDot borderType:BorderTypeHaveRoundedCorner];
-    self.securityField.frame = CGRectMake(15, 100, ScreenWidth-30, 50);
+    self.securityField.tintColor = [UIColor colorWithRed:232/255.f green:232/255.f blue:232/255.f alpha:1];
+    self.securityField.frame = CGRectMake(15, 100, 300, 50);
+    self.securityField.widthOfBox = 40;
     self.securityField.delegate = self;
     self.securityField.completion = ^(LYSecurityField * _Nonnull field, NSString * _Nonnull text) {
         // 输入满格时被触发

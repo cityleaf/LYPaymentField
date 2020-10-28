@@ -10,9 +10,9 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-#define DEFAULT_COUNT_CHARACTERS 6;
-#define DEFAULT_RADIUS 6;
-#define DEFAULT_BODER_WIDTH 0.5;
+#define DEFAULT_COUNT_CHARACTERS 6
+#define DEFAULT_RADIUS 2
+#define DEFAULT_BODER_WIDTH 01
 #define DEFAULT_HORIZONTALLINE_WIDTH 20
 #define DEFAULT_CUSTOMIMAGE_WIDTH 20
 
@@ -58,6 +58,7 @@ void *KVOFrameContext;
         self.numberOfCharacters = numberOfCharacters;
         self.securityCharacterType = securityCharacterType;
         self.borderType = borderType;
+        self.backgroundColor = UIColor.whiteColor;
     }
     return self;
 }
@@ -108,6 +109,109 @@ void *KVOFrameContext;
             [self.contentView.layer addSublayer:obj];
             obj.frame = CGRectMake(pieceWidth * (idx + 1) - self.layer.borderWidth / 2.f, 0, self.layer.borderWidth, height);
         }];
+    }
+}
+
+- (void)drawRect:(CGRect)rect
+{
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    
+    if (self.borderType == BorderTypeBottomLine) {
+        [self drawLine:context rect:rect];
+    } else {
+        [self drawBox:context rect:rect];
+    }
+    
+    CGContextDrawPath(context, kCGPathFillStroke);
+}
+
+/// 绘制方框 draw boxes
+- (void)drawBox:(CGContextRef)context rect:(CGRect)rect
+{
+    CGFloat height = rect.size.height;
+    CGFloat width = rect.size.width;
+    
+    // 按照box个数均分的宽度，是一个虚拟的，用来辅助进一步定位每个box的位置
+    CGFloat virtualAreaWidth = width / self.numberOfCharacters;
+    
+    // 如果均分的宽度小于box宽度，box会出现重叠，所以box要以均宽为准
+    
+    if (self.widthOfBox == 0) {
+        self.widthOfBox = height;
+    }
+    
+    CGFloat temp = 0;
+    
+    if (virtualAreaWidth <= self.widthOfBox) {
+        self.widthOfBox = virtualAreaWidth;
+        temp = 1;
+    }
+    
+    // box 在均分虚拟区域内的padding
+    CGFloat paddingInvirtualArea = (virtualAreaWidth-self.widthOfBox) * 0.5f;
+    
+    
+    CGFloat scale = [[UIScreen mainScreen] scale];
+    CGFloat linewidth = scale > 0.0 ? 1.0 / scale : 1.0;
+    
+    if (virtualAreaWidth > self.widthOfBox) {
+        for (NSUInteger i = 0; i < self.numberOfCharacters; i++) {
+            UIBezierPath *bezierPath = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(i * virtualAreaWidth + paddingInvirtualArea, linewidth, self.widthOfBox, height-linewidth*2) cornerRadius:DEFAULT_RADIUS];
+            CGContextAddPath(context, bezierPath.CGPath);
+            CGContextSetLineWidth(context, 1);
+            CGContextSetStrokeColorWithColor(context, self.tintColor.CGColor);
+            CGContextSetFillColorWithColor(context, self.backgroundColor.CGColor);
+            CGContextClosePath(context);
+        }
+    } else {
+        UIBezierPath *bezierPath = [UIBezierPath bezierPathWithRoundedRect:CGRectMake(linewidth, linewidth, width-linewidth*3, height-linewidth*2) cornerRadius:DEFAULT_RADIUS];
+        CGContextAddPath(context, bezierPath.CGPath);
+        CGContextSetLineWidth(context, linewidth);
+        CGContextSetStrokeColorWithColor(context, self.tintColor.CGColor);
+        CGContextSetFillColorWithColor(context, self.backgroundColor.CGColor);
+        for (NSUInteger i = 1; i < self.numberOfCharacters; i++) {
+            CGContextMoveToPoint(context, i*virtualAreaWidth, 0);
+            CGContextAddLineToPoint(context, i*virtualAreaWidth, height);
+            CGContextSetLineWidth(context, linewidth);
+            CGContextSetStrokeColorWithColor(context, self.tintColor.CGColor);
+            CGContextClosePath(context);
+        }
+    }
+}
+
+- (void)drawLine:(CGContextRef)context rect:(CGRect)rect
+{
+    CGFloat height = rect.size.height;
+    CGFloat width = rect.size.width;
+    
+    // 按照box个数均分的宽度，是一个虚拟的，用来辅助进一步定位每个box的位置
+    CGFloat virtualAreaWidth = width / self.numberOfCharacters;
+    
+    // 如果均分的宽度小于box宽度，box会出现重叠，所以box要以均宽为准
+    
+    if (self.widthOfBox == 0) {
+        self.widthOfBox = height;
+    }
+    
+    CGFloat temp = 0;
+    
+    if (virtualAreaWidth <= self.widthOfBox) {
+        self.widthOfBox = virtualAreaWidth;
+        temp = 1;
+    }
+    
+    // box 在均分虚拟区域内的padding
+    CGFloat paddingInvirtualArea = (virtualAreaWidth-self.widthOfBox) * 0.5f;
+    
+    CGFloat scale = [[UIScreen mainScreen] scale];
+    CGFloat linewidth = scale > 0.0 ? 1.0 / scale : 1.0;
+    
+    for (NSUInteger i = 0; i < self.numberOfCharacters; i++) {
+        CGContextMoveToPoint(context, i * virtualAreaWidth + paddingInvirtualArea, height - linewidth);
+        CGContextAddLineToPoint(context, i * virtualAreaWidth + paddingInvirtualArea + self.widthOfBox, height - linewidth);
+        CGContextSetLineWidth(context, 1);
+        CGContextSetStrokeColorWithColor(context, self.tintColor.CGColor);
+        CGPDFContextClose(context);
     }
 }
 
@@ -217,6 +321,9 @@ void *KVOFrameContext;
 {
     _tintColor = tintColor;
     self.layer.borderColor = tintColor.CGColor;
+    [self.lines enumerateObjectsUsingBlock:^(CALayer * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        obj.backgroundColor = tintColor.CGColor;
+    }];
 }
 
 - (void)setColorOfCharacter:(UIColor *)colorOfCharacter
@@ -262,21 +369,26 @@ void *KVOFrameContext;
     switch (borderType) {
         case BorderTypeHaveRoundedCorner:
         {
-            self.layer.borderColor = self.tintColor.CGColor;
-            self.layer.borderWidth = DEFAULT_BODER_WIDTH;
-            self.layer.cornerRadius = DEFAULT_RADIUS;
+            
+//            CGFloat scale = [[UIScreen mainScreen] scale];
+//            CGFloat width = scale > 0.0 ? DEFAULT_BODER_WIDTH / scale : DEFAULT_BODER_WIDTH;
+//
+//            self.layer.borderColor = self.tintColor.CGColor;
+//            self.layer.borderWidth = width;
+//            self.layer.cornerRadius = DEFAULT_RADIUS;
+            
             break;
         }
         case BorderTypeNoRoundedCorner:
         {
-            self.layer.borderColor = self.tintColor.CGColor;
-            self.layer.borderWidth = DEFAULT_BODER_WIDTH;
-            self.layer.cornerRadius = 0;
+//            self.layer.borderColor = self.tintColor.CGColor;
+//            self.layer.borderWidth = DEFAULT_BODER_WIDTH;
+//            self.layer.cornerRadius = 0;
             break;
         }
         case BorderTypeNoBorder:
         {
-            self.layer.borderWidth = 0;
+//            self.layer.borderWidth = 0;
             break;
         }
         default:

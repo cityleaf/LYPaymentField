@@ -22,6 +22,7 @@ typedef NS_ENUM(NSUInteger, BorderType) {
     BorderTypeNoRoundedCorner,  ///<The border is not rounded.
     BorderTypeSeparateBox,      ///<Each input bit has a separate box.(No support yet.)
     BorderTypeNoBorder,         ///<The control has no borders.
+    BorderTypeBottomLine,       ///<The control only has line in the bottom of every box, without any border.
 };
 
 @class LYSecurityField;
@@ -69,6 +70,10 @@ typedef NS_ENUM(NSUInteger, BorderType) {
 @property (nonatomic, assign) BorderType borderType;
 @property (nonatomic, assign) CGFloat diameterOfDot;
 @property (nonatomic, assign) CGSize securityImageSize;
+/// Every box's width. If you want to control  or change spacing bettwen  boxes, you can by changing your LYSecurityField's  width longer  to control or change your spacing.
+/// NOTE: When borderType is BorderTypeBottomLine, the widthOfBox is bottom line's width.
+/// 每个输入框的宽。如果你想改变输入框的间距，可以通过将LYSecurityField变长来实现。
+@property (nonatomic, assign) CGFloat widthOfBox;
 @property (nonatomic, assign, readonly) NSInteger countOfVerification;
 
 @property (nonatomic, copy) NSString *text;

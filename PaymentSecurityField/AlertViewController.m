@@ -52,7 +52,9 @@
         {
             LYPaymentAlertController *paymentAlert = [LYPaymentAlertController alertControllerWithTitle:@"请输入支付密码" numberOfCharacters:6 amount:@"￥120.00" remarks:@"看那有个傻子"];
             paymentAlert.contentOffset = CGSizeMake(0, 50);
-            [self presentViewController:paymentAlert animated:YES completion:nil];
+            [self presentViewController:paymentAlert animated:YES completion:^{
+                paymentAlert.paymentField.tintColor = [UIColor colorWithRed:232/255.f green:232/255.f blue:232/255.f alpha:1];
+            }];
             break;
         }
         case 1:

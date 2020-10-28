@@ -22,6 +22,7 @@
     self.securityField = [[LYSecurityField alloc] initWithNumberOfCharacters:6 securityCharacterType:SecurityCharacterTypePlainText borderType:BorderTypeHaveRoundedCorner];
     self.securityField.frame = CGRectMake(15, 100, ScreenWidth-30, 50);
     self.securityField.colorOfCharacter = UIColor.blueColor;//文字颜色
+    self.securityField.borderType = BorderTypeBottomLine;
     self.securityField.completion = ^(LYSecurityField * _Nonnull field, NSString * _Nonnull text) {
         // 输入满格时被触发
         NSString *string = [NSString stringWithFormat:@"当前输入为：%@\n第  %ld  次校验",text,field.countOfVerification];
